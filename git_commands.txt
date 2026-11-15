@@ -1,0 +1,76 @@
+GIT COMMANDS LIST - Chai Corner website (cafe-site)
+====================================================
+
+1.  git init
+    Makes the current folder a git repository (creates the hidden .git folder).
+
+2.  git branch -M main
+    Renames the default branch to main.
+
+3.  git add .
+    Stages all files in the folder for the next commit.
+
+4.  git status  /  git status --short
+    Shows the state of the working directory. --short gives a compact view (?? = untracked, A = added).
+
+5.  git commit -m "message"
+    Creates a commit (snapshot) of the staged files with a message.
+
+6.  git add index.html
+    Stages only one particular file.
+
+7.  git branch feature
+    Creates a new branch called feature (does not switch to it).
+
+8.  git switch feature
+    Moves to the feature branch. This is the newer command for switching, same as git checkout feature.
+
+9.  git log --oneline --all
+    Short history of every branch, one line per commit.
+
+10. git switch main
+    Goes back to the main branch.
+
+11. git merge feature -m "Merge branch feature into main"
+    Merges the feature branch into main. Because main also had a new commit, git made a merge commit.
+
+12. git log --graph --oneline --decorate --all
+    History as a graph, shows where branches split and joined and which branch points where.
+
+13. git log --pretty=format:"%h | %an | %ad | %s" --date=short
+    History with short hash, author, date and message in my own format.
+
+14. git check-ignore -v access.log build/index.min.html
+    Checks if files are ignored and prints which line of .gitignore is ignoring them.
+
+15. git log --oneline -3
+    Shows only the last 3 commits.
+
+16. git reset --hard HEAD~1
+    Undo of the last commit. Moves main back by one commit and also removes the changes from
+    the files (gallery.html got deleted). Used before pushing so no one else had that commit.
+
+17. ls
+    (terminal command) lists files, used to show gallery.html is gone after the reset.
+
+18. git reflog -5
+    Shows the last 5 positions of HEAD. It proves the reset happened, the removed commit is still listed here.
+
+19. git remote add origin https://github.com/Sanskriti10247/cafe-site.git
+    Connects the local repo to the GitHub repo with the name origin.
+
+20. git remote -v
+    Lists remotes to verify the URL.
+
+21. git push -u origin main
+    Uploads main to GitHub and sets tracking, so next time only git push is needed.
+
+22. git push -u origin feature
+    Uploads the feature branch too so the branch is also visible on GitHub.
+
+23. git add git_commands.txt  +  git commit -m "add git commands documentation"
+    Added this documentation file to the repo before pushing.
+
+Other (GitHub CLI, not git):
+    gh repo create cafe-site --public
+    Creates an empty public repository on my GitHub account from the terminal.
